@@ -1,8 +1,9 @@
-﻿namespace IdentityServer.Data.Models
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+
+namespace IdentityServer.Data.Models
 {
-    public class Employee
+    public class Employee : IdentityUser
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public int Type { get; set; }
     }
