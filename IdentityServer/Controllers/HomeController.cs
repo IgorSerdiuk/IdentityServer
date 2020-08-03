@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
@@ -15,6 +16,13 @@ namespace IdentityServer.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ITestInjection _test;
+
+        public HomeController(ITestInjection testInjection)
+        {
+            _test = testInjection;
+        }
+
         public async Task<ActionResult>Index()
         {
             var userManager = HttpContext.GetOwinContext().GetUserManager<EmployeeManager>();
@@ -35,10 +43,11 @@ namespace IdentityServer.Controllers
             {
                 var ident = userManager.CreateIdentity(user,
                     DefaultAuthenticationTypes.ApplicationCookie);
+                ident.AddClaim(new Claim("claiim", "SomeValue"));
                 //use the instance that has been created. 
                 authManager.SignIn(
                     new AuthenticationProperties { IsPersistent = false }, ident);
-                return Redirect(Url.Action("Index", "Home"));
+                return View();
             }
 
             return View();
@@ -47,7 +56,6 @@ namespace IdentityServer.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
 
             return View();
         }
