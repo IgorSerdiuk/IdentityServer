@@ -19,12 +19,12 @@ namespace IdentityServer.Controllers
     {
         private readonly IHouseManager _houseManager;
         private readonly IMapper _mapper;
+
         public HouseController(IHouseManager houseManager, IMapper mapper)
         {
             _houseManager = houseManager;
             _mapper = mapper;
         }
-
 
         public ActionResult Get()
         {

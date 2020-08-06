@@ -1,0 +1,17 @@
+﻿@model IdentityServer.Models.RegisterPostModel
+@{
+    ViewBag.Title = "Register";
+}
+
+    <div>
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+        {
+            @Html.ValidationSummary(true, "")
+            <span>UserName :</span>@Html.TextBoxFor(x => x.UserName)<br />
+            <span>Email :</span>@Html.TextBoxFor(x => x.Email)<br />
+            <span>Type :</span>@Html.TextBoxFor(x => x.Type)<br />
+            <span>Password :</span>@Html.PasswordFor(x => x.Password)<br />
+            <input type="submit" value="Отправить" />
+        }
+    </div>
+

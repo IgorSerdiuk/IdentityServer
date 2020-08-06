@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "LogIn";
+}
+
+@model IdentityServer.Models.LoginPostModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<div>
+    @using (Html.BeginForm("SignIn", "Account", FormMethod.Post))
+    {
+        <span>UserName :</span>@Html.TextBoxFor(x => x.UserName)<br />
+        <span>Password :</span>@Html.PasswordFor(x => x.Password)<br />
+        <input type="submit" value="Отправить" />
+    }
+</div>
+
+

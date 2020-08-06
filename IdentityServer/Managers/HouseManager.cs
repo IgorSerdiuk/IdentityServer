@@ -11,6 +11,7 @@ namespace IdentityServer.Managers
     public class HouseManager : IHouseManager
     {
         private readonly IHouseRepository _houseRepository;
+        
         public HouseManager(IHouseRepository houseRepository)
         {
             _houseRepository = houseRepository;

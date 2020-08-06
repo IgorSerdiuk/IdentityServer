@@ -7,7 +7,7 @@ namespace IdentityServer.Data
 {
     public class IdentityServerContext : IdentityDbContext<Employee>, IIdentityServerContext
     {
-        public IdentityServerContext() : base("Data Source=ISERDYUK;;Initial Catalog=IdentityServer;Integrated Security=True") { }
+        public IdentityServerContext() : base("Data Source=.\\SQLEXPRESS;;Initial Catalog=IdentityServer;Integrated Security=True") { }
 
         public IdentityServerContext(string constring) : base(constring)
         {

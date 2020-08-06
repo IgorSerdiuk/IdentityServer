@@ -185,6 +185,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Autofac\AutofacConfig.cs" />
     <Compile Include="Autofac\Module.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HouseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\CustomModelValidationFilterAttribute.cs" />
@@ -196,6 +197,8 @@
     <Compile Include="Managers\HouseManager.cs" />
     <Compile Include="Managers\TestInjection.cs" />
     <Compile Include="Models\CageModel.cs" />
+    <Compile Include="Models\LoginPostModel.cs" />
+    <Compile Include="Models\RegisterPostModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +238,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\House\Get.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\LogIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
