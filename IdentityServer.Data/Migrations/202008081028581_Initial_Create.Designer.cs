@@ -7,13 +7,13 @@ namespace IdentityServer.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class Add_Identity_Server : IMigrationMetadata
+    public sealed partial class Initial_Create : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Add_Identity_Server));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial_Create));
         
         string IMigrationMetadata.Id
         {
-            get { return "202007301039275_Add_Identity_Server"; }
+            get { return "202008081028581_Initial_Create"; }
         }
         
         string IMigrationMetadata.Source
