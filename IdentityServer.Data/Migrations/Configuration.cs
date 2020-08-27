@@ -1,5 +1,7 @@
 ﻿namespace IdentityServer.Data.Migrations
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -14,10 +16,18 @@
 
         protected override void Seed(IdentityServer.Data.IdentityServerContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            if (!context.Roles.Any())
+            {
+                var store = new RoleStore<IdentityRole>(context);
+                var manager = new RoleManager<IdentityRole>(store);
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
-            //  to avoid creating duplicate seed data.
+                var adminRole = new IdentityRole { Name = "Admin" };
+                var rickAstleyRole = new IdentityRole { Name = "SuperAdmin" };
+                manager.Create(adminRole);
+                manager.Create(rickAstleyRole);
+            }
+
+            context.SaveChanges();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using IdentityServer.Data;
 using IdentityServer.Managers;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
@@ -31,8 +32,6 @@ namespace IdentityServer
         {
             app.CreatePerOwinContext(() => new IdentityServerContext());
             app.CreatePerOwinContext<EmployeeManager>(EmployeeManager.Create);
-            //app.CreatePerOwinContext<RoleManager<DefaultRole>>(context =>
-            //    new RoleManager<DefaultRole>(           new RoleStore<DefaultRole>(context.Get<IdentityServerContext>())));
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
