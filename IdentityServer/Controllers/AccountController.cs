@@ -29,6 +29,7 @@ namespace IdentityServer.Controllers
         public async Task<ActionResult> SignIn(LoginPostModel model)
         {
             var ctx = HttpContext.GetOwinContext();
+
             var userManager = ctx.GetUserManager<EmployeeManager>();
             var auth = ctx.Authentication;
             var user = await userManager.FindAsync(model.UserName, model.Password);
